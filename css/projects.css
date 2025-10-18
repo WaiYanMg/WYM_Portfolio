@@ -1,0 +1,85 @@
+/* 🌟 Glass Project Card Base */
+.project-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 1.2rem;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+/* ✨ Hover Glow + Gold Border Animation */
+.project-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  border-color: rgba(212, 175, 55, 0.85);
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.25);
+}
+
+/* 🔥 Subtle moving light overlay */
+.project-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(255, 255, 255, 0.25),
+    transparent 70%
+  );
+  transform: translate(-100%, -100%) rotate(25deg);
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 1s ease;
+  pointer-events: none;
+}
+
+.project-card:hover::before {
+  opacity: 1;
+  transform: translate(0%, 0%) rotate(25deg);
+}
+
+/* 🌟 Project Text */
+.project-card h2 {
+  letter-spacing: 0.5px;
+}
+
+.project-card p {
+  line-height: 1.6;
+}
+
+/* 🌟 Gold Button Consistency */
+.btn-gold {
+  background: linear-gradient(to right, #d4af37, #ffd966);
+  color: white;
+  border: 1px solid transparent;
+  border-radius: 9999px;
+  padding: 0.6rem 2rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+.btn-gold:hover {
+  background: #fff9e3;
+  color: #333;
+  border-color: #d4af37;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+  transform: scale(1.05);
+}
+
+/* 🌟 Responsive Adjustments */
+@media (max-width: 768px) {
+  .project-card {
+    text-align: center;
+  }
+
+  .project-card video,
+  .project-card img {
+    width: 100%;
+    height: auto;
+  }
+}

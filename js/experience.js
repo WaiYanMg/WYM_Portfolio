@@ -51,3 +51,4 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => notif.remove(), 3000);
   });
 });
+

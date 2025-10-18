@@ -98,3 +98,5 @@ document.addEventListener("DOMContentLoaded", () => {
   const ageSpan = document.getElementById("age");
   if (ageSpan) ageSpan.textContent = age;
 });
+
+
