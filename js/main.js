@@ -42,36 +42,44 @@ document.querySelectorAll(".firefly-hover").forEach((element) => {
   });
 });
 
-// ✨ Firefly Intro Animation (for name)
-window.addEventListener("load", () => {
-  const introName = document.getElementById("intro-name");
-  if (!introName) return;
+// ✨ Shared Firefly Intro Animation Function
+function triggerFireflyIntro(elementId, duration = 3000, interval = 250) {
+  const target = document.getElementById(elementId);
+  if (!target) return;
 
-  const container = introName.querySelector(".firefly-container");
-  if (!container) return;
-
+  const container = target.querySelector(".firefly-container");
   const start = Date.now();
-  const duration = 3000;
-  const interval = 250;
 
-  const fireflyTimer = setInterval(() => {
+  const timer = setInterval(() => {
     if (Date.now() - start > duration) {
-      clearInterval(fireflyTimer);
+      clearInterval(timer);
       return;
     }
 
+    // Spawn 3 fireflies each cycle
     for (let i = 0; i < 3; i++) {
       const f = document.createElement("div");
       f.classList.add("firefly");
-      const x = Math.random() * introName.offsetWidth;
-      const y = Math.random() * introName.offsetHeight;
+
+      const x = Math.random() * target.offsetWidth;
+      const y = Math.random() * target.offsetHeight;
       f.style.left = `${x}px`;
       f.style.top = `${y}px`;
+
       container.appendChild(f);
       setTimeout(() => f.remove(), 1500);
     }
   }, interval);
+}
+
+// 🌟 Automatically run firefly intro on load for common pages
+window.addEventListener("load", () => {
+  // Example: homepage, about, experience
+  ["intro-name", "intro-about", "intro-experience"].forEach(id => {
+    triggerFireflyIntro(id);
+  });
 });
+
 
 // 🕒 Auto-calculate real-time age
 document.addEventListener("DOMContentLoaded", () => {
