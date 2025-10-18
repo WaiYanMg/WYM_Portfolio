@@ -99,4 +99,30 @@ document.addEventListener("DOMContentLoaded", () => {
   if (ageSpan) ageSpan.textContent = age;
 });
 
+function initFireflyHover() {
+  document.querySelectorAll(".firefly-hover").forEach((element) => {
+    // Avoid duplicates
+    if (element.dataset.fireflyInit) return;
+    element.dataset.fireflyInit = true;
+
+    const container = element.querySelector(".firefly-container");
+    if (!container) return;
+
+    element.addEventListener("mouseenter", () => {
+      for (let i = 0; i < 5; i++) {
+        const spark = document.createElement("div");
+        spark.classList.add("firefly");
+        spark.style.top = `${Math.random() * 100}%`;
+        spark.style.left = `${Math.random() * 100}%`;
+        spark.style.animationDelay = `${Math.random() * 0.5}s`;
+        container.appendChild(spark);
+
+        setTimeout(() => spark.remove(), 1200);
+      }
+    });
+  });
+}
+
+// Run once at page load
+document.addEventListener("DOMContentLoaded", initFireflyHover);
 

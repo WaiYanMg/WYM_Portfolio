@@ -10,10 +10,7 @@
   <script src="/js/tailwind-config.js"></script>
 
   <!-- Font Awesome -->
- <link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="/css/style.css">
@@ -54,7 +51,7 @@
   <!-- 💼 Projects List -->
   <section class="max-w-6xl mx-auto px-6 pb-24 space-y-16">
 
-    <!-- 🧩 Project 1: Video on Right -->
+    <!-- 🧩 Project 1: Smart HR System -->
     <div class="flex flex-col md:flex-row items-center gap-8 glass-card p-8 relative project-card">
       <div class="md:w-1/2 space-y-3">
         <h2 class="text-3xl font-bold text-gold">Smart HR System</h2>
@@ -72,7 +69,7 @@
         </div>
       </div>
       <div class="md:w-1/2">
-        <video class="rounded-2xl shadow-lg w-full" controls poster="/images/project1-thumb.png">
+        <video class="rounded-2xl shadow-lg w-full" controls muted poster="/images/project1-thumb.png">
           <source src="/videos/project1.mp4" type="video/mp4" />
           Your browser does not support video.
         </video>
@@ -80,36 +77,37 @@
     </div>
 
     <!-- 🧩 Project 2: POS Billing Software -->
-<div class="flex flex-col md:flex-row items-center gap-8 glass-card p-8 relative project-card">
-  <div class="md:w-1/2 space-y-3 text-left">
-    <h2 class="text-3xl font-bold text-gold">POS Billing Software</h2>
-    <p class="text-gray-700 leading-relaxed">
-      A desktop-based POS solution developed with 
-      <span class="text-gold font-semibold">.NET Framework</span> and 
-      <span class="text-gold font-semibold">MSSQL</span>, designed for multi-branch businesses.
-    </p>
-    <p class="text-sm text-gray-600">
-      Objective: Streamline daily sales and inventory management for retail clients.
-    </p>
-
-    <div class="mt-4 flex gap-3 justify-start">
-      <a href="https://github.com/WaiYanMaungW/pos-system" target="_blank"
-         class="btn-gold firefly-hover relative inline-block">
-        GitHub
-        <div class="firefly-container absolute inset-0 pointer-events-none"></div>
-      </a>
+    <div onclick="openProjectModal({
+      title: 'POS Billing Software',
+      desc: 'A desktop-based POS solution built with .NET Framework and MSSQL, designed for multi-branch businesses. Streamlines daily sales and inventory management.',
+      images: ['/images/fumi1.PNG','/images/fumi2.PNG','/images/fumi3.PNG'],
+      github: 'https://github.com/WaiYanMaungW/pos-system'
+    })" 
+    class="flex flex-col md:flex-row items-center gap-8 glass-card p-8 relative project-card cursor-pointer hover:shadow-xl transition-all duration-500">
+      <div class="md:w-1/2 space-y-3 text-left">
+        <h2 class="text-3xl font-bold text-gold">POS Billing Software</h2>
+        <p class="text-gray-700 leading-relaxed">
+          A desktop-based POS solution developed with 
+          <span class="text-gold font-semibold">.NET Framework</span> and 
+          <span class="text-gold font-semibold">MSSQL</span>, designed for multi-branch businesses.
+        </p>
+        <p class="text-sm text-gray-600">
+          Objective: Streamline daily sales and inventory management for retail clients.
+        </p>
+        <div class="mt-4">
+      <button class="btn-gold firefly-hover relative inline-block">
+  View Details
+  <div class="firefly-container absolute inset-0 pointer-events-none"></div>
+</button>
+        </div>
+      </div>
+      <div class="md:w-1/2 grid grid-cols-2 gap-3">
+        <img src="/images/fumi1.PNG" alt="POS UI 1" class="rounded-xl shadow-lg">
+        <img src="/images/fumi2.PNG" alt="POS UI 2" class="rounded-xl shadow-lg">
+      </div>
     </div>
-  </div>
 
-  <div class="md:w-1/2 grid grid-cols-2 gap-3">
-  <img src="/images/fumi1.PNG" alt="POS UI 1" class="rounded-xl shadow-lg">
-  <img src="/images/fumi2.PNG" alt="POS UI 2" class="rounded-xl shadow-lg">
-  <img src="/images/fumi3.PNG" alt="POS UI 2" class="rounded-xl shadow-lg">
-</div>
-
-</div>
-
-    <!-- 🧩 Project 3: Image on Left -->
+    <!-- 🧩 Project 3: AI Chess Game -->
     <div class="flex flex-col md:flex-row items-center gap-8 glass-card p-8 relative project-card">
       <div class="md:w-1/2 space-y-3">
         <h2 class="text-3xl font-bold text-gold">AI Chess Game</h2>
@@ -130,8 +128,22 @@
         <img src="/images/project3.png" alt="AI Chess Game" class="rounded-2xl shadow-lg w-full">
       </div>
     </div>
-
   </section>
+
+<script>
+  fetch("/partials/project-modal.html")
+    .then(res => res.text())
+    .then(html => {
+      document.body.insertAdjacentHTML("beforeend", html);
+
+      // 🪄 Re-run firefly hover setup for new elements
+      if (typeof initFireflyHover === "function") {
+        initFireflyHover();
+      }
+    });
+</script>
+
+
 
   <!-- Footer -->
   <footer class="glass-footer text-center py-8">
