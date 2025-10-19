@@ -15,6 +15,15 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+// Nvgaigation Menu Toggle for Mobile
+  const toggleBtn = document.getElementById("menu-toggle");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  toggleBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+  });
+
+
 // 🌙 Dark/Light Mode Toggle
 const themeToggle = document.getElementById("theme-toggle");
 if (themeToggle) {

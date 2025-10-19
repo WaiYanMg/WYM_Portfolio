@@ -27,6 +27,14 @@ body {
   padding: 2.5rem;
   color: #222;
 }
+/* 🌟 Mobile Menu Animation */
+#mobile-menu {
+  animation: fadeInNav 0.3s ease;
+}
+@keyframes fadeInNav {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
 /* 🌟 About Me Button */
 .about-btn {
