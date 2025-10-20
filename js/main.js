@@ -1,7 +1,11 @@
-// 🌟 Scroll Animation for Service Cards
-document.addEventListener("DOMContentLoaded", () => {
-  const items = document.querySelectorAll(".service-item");
+// 🌟 MAIN.JS — WAI YAN MAUNG PORTFOLIO
 
+document.addEventListener("DOMContentLoaded", () => {
+
+  // -------------------------------------
+  // 🌟 1. Scroll Animation (Service Cards)
+  // -------------------------------------
+  const items = document.querySelectorAll(".service-item");
   if (items.length > 0) {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry, index) => {
@@ -10,52 +14,146 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     }, { threshold: 0.2 });
-
     items.forEach(item => observer.observe(item));
   }
-});
 
-// Nvgaigation Menu Toggle for Mobile
-  const toggleBtn = document.getElementById("menu-toggle");
-  const mobileMenu = document.getElementById("mobile-menu");
+  // -------------------------------------
+  // 📱 2. Mobile Navbar Toggle (fixed)
+  // -------------------------------------
+  // 📱 Mobile Navbar Toggle (fixed & stable icons)
+const toggle = document.getElementById("menu-toggle");
+const nav = document.getElementById("nav-links");
 
-  toggleBtn.addEventListener("click", () => {
-    mobileMenu.classList.toggle("hidden");
+if (toggle && nav) {
+  toggle.addEventListener("click", (e) => {
+    e.stopPropagation();
+
+    const isHidden = nav.classList.contains("hidden");
+    const icon = toggle.querySelector("i");
+
+    if (isHidden) {
+      // 🔓 OPEN MENU
+      nav.classList.remove("hidden");
+      nav.classList.add("flex", "animate-fade-in-menu");
+      icon.classList.replace("fa-bars", "fa-xmark");
+
+      setTimeout(() => nav.classList.remove("animate-fade-in-menu"), 350);
+    } else {
+      // 🔒 CLOSE MENU
+      nav.classList.add("animate-fade-out-menu");
+      icon.classList.replace("fa-xmark", "fa-bars");
+
+      setTimeout(() => {
+        nav.classList.add("hidden");
+        nav.classList.remove("flex", "animate-fade-out-menu");
+      }, 250);
+    }
   });
 
+  // 🧭 Close when clicking outside (mobile only)
+  document.addEventListener("click", (e) => {
+    if (
+      window.innerWidth < 768 &&
+      !nav.contains(e.target) &&
+      !toggle.contains(e.target) &&
+      !nav.classList.contains("hidden")
+    ) {
+      nav.classList.add("animate-fade-out-menu");
+      const icon = toggle.querySelector("i");
+      icon.classList.replace("fa-xmark", "fa-bars");
 
-// 🌙 Dark/Light Mode Toggle
-const themeToggle = document.getElementById("theme-toggle");
-if (themeToggle) {
-  themeToggle.addEventListener("click", () => {
-    document.body.classList.toggle("dark");
+      setTimeout(() => {
+        nav.classList.add("hidden");
+        nav.classList.remove("flex", "animate-fade-out-menu");
+      }, 250);
+    }
+  });
+
+  // 🧩 Close when clicking a link
+  nav.querySelectorAll("a").forEach((link) =>
+    link.addEventListener("click", () => {
+      if (window.innerWidth < 768) {
+        nav.classList.add("animate-fade-out-menu");
+        const icon = toggle.querySelector("i");
+        icon.classList.replace("fa-xmark", "fa-bars");
+        setTimeout(() => {
+          nav.classList.add("hidden");
+          nav.classList.remove("flex", "animate-fade-out-menu");
+        }, 250);
+      }
+    })
+  );
+}
+
+
+  // -------------------------------------
+  // 🌙 3. Dark / Light Mode Toggle (Optional)
+  // -------------------------------------
+  const themeToggle = document.getElementById("theme-toggle");
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+    });
+  }
+
+  // -------------------------------------
+  // 🕒 4. Auto-calculate Real-Time Age
+  // -------------------------------------
+  const birthDate = new Date(1996, 6, 10); // July 10, 1996
+  const today = new Date();
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const hasBirthdayPassed =
+    today.getMonth() > birthDate.getMonth() ||
+    (today.getMonth() === birthDate.getMonth() && today.getDate() >= birthDate.getDate());
+  if (!hasBirthdayPassed) age--;
+  const ageSpan = document.getElementById("age");
+  if (ageSpan) ageSpan.textContent = age;
+
+  // -------------------------------------
+  // ✨ 5. Firefly Hover Effect
+  // -------------------------------------
+  initFireflyHover();
+
+  // -------------------------------------
+  // 💫 6. Firefly Intro Animation for Headings
+  // -------------------------------------
+  ["intro-name", "intro-about", "intro-experience"].forEach(id => {
+    triggerFireflyIntro(id);
+  });
+
+});
+
+
+// ==========================================================
+// ✨ FUNCTION DEFINITIONS
+// ==========================================================
+
+// 🔥 Firefly Hover
+function initFireflyHover() {
+  document.querySelectorAll(".firefly-hover").forEach((el) => {
+    if (el.dataset.fireflyInit) return;
+    el.dataset.fireflyInit = true;
+
+    const container = el.querySelector(".firefly-container");
+    if (!container) return;
+
+    el.addEventListener("mouseenter", () => {
+      for (let i = 0; i < 5; i++) {
+        const f = document.createElement("div");
+        f.classList.add("firefly");
+        f.style.left = `${Math.random() * el.offsetWidth}px`;
+        f.style.top = `${Math.random() * el.offsetHeight}px`;
+        container.appendChild(f);
+        setTimeout(() => f.remove(), 1200);
+      }
+    });
   });
 }
 
-// ✨ Firefly Hover Effect (for buttons, links, logo)
-document.querySelectorAll(".firefly-hover").forEach((element) => {
-  const container = element.querySelector(".firefly-container");
-  if (!container) return; // skip if no container inside
-
-  element.addEventListener("mouseenter", () => {
-    for (let i = 0; i < 5; i++) {
-      const f = document.createElement("div");
-      f.classList.add("firefly");
-      const x = Math.random() * element.offsetWidth;
-      const y = Math.random() * element.offsetHeight;
-      f.style.left = `${x}px`;
-      f.style.top = `${y}px`;
-      container.appendChild(f);
-      setTimeout(() => f.remove(), 1200);
-    }
-  });
-});
-
-// ✨ Shared Firefly Intro Animation Function
+// 💫 Firefly Intro Animation
 function triggerFireflyIntro(elementId, duration = 3000, interval = 250) {
   const target = document.getElementById(elementId);
   if (!target) return;
-
   const container = target.querySelector(".firefly-container");
   const start = Date.now();
 
@@ -64,74 +162,13 @@ function triggerFireflyIntro(elementId, duration = 3000, interval = 250) {
       clearInterval(timer);
       return;
     }
-
-    // Spawn 3 fireflies each cycle
     for (let i = 0; i < 3; i++) {
       const f = document.createElement("div");
       f.classList.add("firefly");
-
-      const x = Math.random() * target.offsetWidth;
-      const y = Math.random() * target.offsetHeight;
-      f.style.left = `${x}px`;
-      f.style.top = `${y}px`;
-
+      f.style.left = `${Math.random() * target.offsetWidth}px`;
+      f.style.top = `${Math.random() * target.offsetHeight}px`;
       container.appendChild(f);
       setTimeout(() => f.remove(), 1500);
     }
   }, interval);
 }
-
-// 🌟 Automatically run firefly intro on load for common pages
-window.addEventListener("load", () => {
-  // Example: homepage, about, experience
-  ["intro-name", "intro-about", "intro-experience"].forEach(id => {
-    triggerFireflyIntro(id);
-  });
-});
-
-
-// 🕒 Auto-calculate real-time age
-document.addEventListener("DOMContentLoaded", () => {
-  const birthDate = new Date(1996, 6, 10); // July = 6 (months start at 0)
-  const today = new Date();
-
-  let age = today.getFullYear() - birthDate.getFullYear();
-
-  // Adjust if birthday hasn't occurred yet this year
-  const hasBirthdayPassed =
-    today.getMonth() > birthDate.getMonth() ||
-    (today.getMonth() === birthDate.getMonth() && today.getDate() >= birthDate.getDate());
-  if (!hasBirthdayPassed) age--;
-
-  // Display the age
-  const ageSpan = document.getElementById("age");
-  if (ageSpan) ageSpan.textContent = age;
-});
-
-function initFireflyHover() {
-  document.querySelectorAll(".firefly-hover").forEach((element) => {
-    // Avoid duplicates
-    if (element.dataset.fireflyInit) return;
-    element.dataset.fireflyInit = true;
-
-    const container = element.querySelector(".firefly-container");
-    if (!container) return;
-
-    element.addEventListener("mouseenter", () => {
-      for (let i = 0; i < 5; i++) {
-        const spark = document.createElement("div");
-        spark.classList.add("firefly");
-        spark.style.top = `${Math.random() * 100}%`;
-        spark.style.left = `${Math.random() * 100}%`;
-        spark.style.animationDelay = `${Math.random() * 0.5}s`;
-        container.appendChild(spark);
-
-        setTimeout(() => spark.remove(), 1200);
-      }
-    });
-  });
-}
-
-// Run once at page load
-document.addEventListener("DOMContentLoaded", initFireflyHover);
-

@@ -9,8 +9,11 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="/js/tailwind-config.js"></script>
 
-  <!-- Font Awesome -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <!-- Font Awesome (CDN) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+  />
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="/css/style.css">
@@ -22,21 +25,40 @@
   <!-- 🪄 Firefly Background -->
   <div id="fireflies"></div>
 
-  <!-- Gradient BG -->
-  <div class="absolute inset-0 bg-gradient-to-br from-yellow-100 via-skin to-yellowLight -z-10"></div>
+  <!-- Gradient Background -->
+  <div class="absolute inset-0 bg-gradient-to-br from-yellow-100 via-yellow-50 to-yellowLight -z-10"></div>
 
   <!-- 🌟 Glass Navbar -->
   <nav class="fixed top-0 w-full bg-white/10 backdrop-blur-xl border-b border-white/20 shadow-lg z-50">
     <div class="max-w-6xl mx-auto flex justify-between items-center px-6 py-3 relative">
+
+      <!-- Logo -->
       <a href="/index.html" class="text-2xl font-bold text-gold tracking-wide relative group firefly-hover">
-        WYM
-        <span class="firefly-container absolute inset-0 pointer-events-none"></span>
+        WYM <span class="firefly-container absolute inset-0 pointer-events-none"></span>
       </a>
-      <ul class="flex space-x-8 text-gray-900 font-medium">
-        <li><a href="about.html" class="hover:text-gold text-gold transition-colors relative group firefly-hover">About<span class="firefly-container absolute inset-0 pointer-events-none"></span></a></li>
-        <li><a href="projects.html" class="hover:text-gold transition-colors relative group firefly-hover">Projects<span class="firefly-container absolute inset-0 pointer-events-none"></span></a></li>
-        <li><a href="experience.html" class="hover:text-gold transition-colors relative group firefly-hover">Experience<span class="firefly-container absolute inset-0 pointer-events-none"></span></a></li>
-        <li><a href="contact.html" class="hover:text-gold transition-colors relative group firefly-hover">Contact<span class="firefly-container absolute inset-0 pointer-events-none"></span></a></li>
+
+      <!-- Mobile Menu Toggle -->
+      <button id="menu-toggle" class="md:hidden text-gold text-3xl hover:text-yellow-400 transition">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <!-- Navigation Links -->
+      <ul id="nav-links"
+        class="hidden md:flex text-gray-900 font-medium 
+               md:static absolute md:w-auto w-full top-full left-0
+               flex-col md:flex-row md:space-x-8 
+               py-6 md:py-0 
+               transition-all duration-500 z-40 md:z-auto
+               bg-white/40 md:bg-transparent 
+               backdrop-blur-2xl md:backdrop-blur-none 
+               border-t border-white/20 md:border-none 
+               rounded-b-2xl md:rounded-none 
+               shadow-lg md:shadow-none">
+
+        <li><a href="/about.html" class="block px-8 py-3 text-gold border-b-2 border-gold md:border-none hover:text-gold transition relative firefly-hover">About<span class="firefly-container absolute inset-0 pointer-events-none"></span></a></li>
+        <li><a href="/projects.html" class="block px-8 py-3 hover:text-gold transition relative firefly-hover">Projects<span class="firefly-container absolute inset-0 pointer-events-none"></span></a></li>
+        <li><a href="/experience.html" class="block px-8 py-3 hover:text-gold transition relative firefly-hover">Experience<span class="firefly-container absolute inset-0 pointer-events-none"></span></a></li>
+        <li><a href="/contact.html" class="block px-8 py-3 hover:text-gold transition relative firefly-hover">Contact<span class="firefly-container absolute inset-0 pointer-events-none"></span></a></li>
       </ul>
     </div>
   </nav>
@@ -49,19 +71,17 @@
     </div>
 
     <p class="text-gray-700 text-lg mb-3">Walkinstown, Dublin 12, Ireland</p>
-<p class="text-gray-700 mb-5 text-center">
-  📧 
-  <span class="relative firefly-hover inline-block">
-    <a href="mailto:waiyanmgw@gmail.com" class="text-gold hover:underline">
-      waiyanmgw@gmail.com
-    </a>
-    <div class="firefly-container absolute inset-0 pointer-events-none"></div>
-  </span>
-  
-  📱 +353 874058019
-</p>
 
-
+    <p class="text-gray-700 mb-5 text-center">
+      📧 
+      <span class="relative firefly-hover inline-block">
+        <a href="mailto:waiyanmgw@gmail.com" class="text-gold hover:underline">
+          waiyanmgw@gmail.com
+        </a>
+        <div class="firefly-container absolute inset-0 pointer-events-none"></div>
+      </span>
+      &nbsp;|&nbsp; 📱 +353 874058019
+    </p>
 
     <!-- 🔗 Firefly-Enabled Social Links -->
     <div class="space-x-4 mt-4 text-lg font-medium text-gray-900">
@@ -144,7 +164,7 @@
         Skilled in full-stack development, database management, and UI design using DevExpress and modern frameworks.
       </p>
 
-      <a href="experience.html" class="btn-gold mt-6 firefly-hover relative inline-block">
+      <a href="/experience.html" class="btn-gold mt-6 firefly-hover relative inline-block">
         View Full Working Experience →
         <div class="firefly-container absolute inset-0 pointer-events-none"></div>
       </a>

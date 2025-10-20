@@ -7,16 +7,17 @@
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  
-    <script src="/js/tailwind-config.js"></script>
-
+  <script src="/js/tailwind-config.js"></script>
 
   <!-- Font Awesome -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+  />
 
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/css/experience.css">
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/experience.css" />
 </head>
 
 <body class="bg-yellowLight text-gray-900 overflow-x-hidden relative">
@@ -24,44 +25,68 @@
   <!-- 🪄 Firefly Background -->
   <div id="fireflies"></div>
 
-  <!-- Navbar -->
+  <!-- Gradient Background -->
+  <div class="absolute inset-0 bg-gradient-to-br from-yellow-100 via-yellow-50 to-yellowLight -z-10"></div>
+
+  <!-- 🌟 Glass Navbar -->
   <nav class="fixed top-0 w-full bg-white/10 backdrop-blur-xl border-b border-white/20 shadow-lg z-50">
     <div class="max-w-6xl mx-auto flex justify-between items-center px-6 py-3 relative">
+
+      <!-- Logo -->
       <a href="/index.html" class="text-2xl font-bold text-gold tracking-wide relative group firefly-hover">
         WYM <span class="firefly-container absolute inset-0 pointer-events-none"></span>
       </a>
-      <ul class="flex space-x-8 text-gray-900 font-medium">
-        <li><a href="/about.html" class="hover:text-gold transition-colors relative group firefly-hover">About<span class="firefly-container absolute inset-0 pointer-events-none"></span></a></li>
-        <li><a href="/projects.html" class="hover:text-gold transition-colors relative group firefly-hover">Projects<span class="firefly-container absolute inset-0 pointer-events-none"></span></a></li>
-        <li><a href="/experience.html" class="text-gold border-b-2 border-gold pb-1 relative group firefly-hover">Experience<span class="firefly-container absolute inset-0 pointer-events-none"></span></a></li>
-        <li><a href="/contact.html" class="hover:text-gold transition-colors relative group firefly-hover">Contact<span class="firefly-container absolute inset-0 pointer-events-none"></span></a></li>
+
+      <!-- Mobile Menu Toggle -->
+      <button id="menu-toggle" class="md:hidden text-gold text-3xl hover:text-yellow-400 transition">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <!-- Navigation Links -->
+      <ul id="nav-links"
+        class="hidden md:flex text-gray-900 font-medium 
+               md:static absolute md:w-auto w-full top-full left-0
+               flex-col md:flex-row md:space-x-8 
+               py-6 md:py-0 
+               transition-all duration-500 z-40 md:z-auto
+               bg-white/40 md:bg-transparent 
+               backdrop-blur-2xl md:backdrop-blur-none 
+               border-t border-white/20 md:border-none 
+               rounded-b-2xl md:rounded-none 
+               shadow-lg md:shadow-none">
+
+        <li><a href="/about.html" class="block px-8 py-3 hover:text-gold transition relative firefly-hover">About
+          <span class="firefly-container absolute inset-0 pointer-events-none"></span></a></li>
+        <li><a href="/projects.html" class="block px-8 py-3 hover:text-gold transition relative firefly-hover">Projects
+          <span class="firefly-container absolute inset-0 pointer-events-none"></span></a></li>
+        <li><a href="/experience.html" class="block px-8 py-3 text-gold border-b-2 border-gold md:border-none hover:text-gold transition relative firefly-hover">Experience
+          <span class="firefly-container absolute inset-0 pointer-events-none"></span></a></li>
+        <li><a href="/contact.html" class="block px-8 py-3 hover:text-gold transition relative firefly-hover">Contact
+          <span class="firefly-container absolute inset-0 pointer-events-none"></span></a></li>
       </ul>
     </div>
   </nav>
 
   <!-- 🧊 Hero Section -->
- <section class="min-h-[60vh] flex flex-col justify-center items-center text-center pt-28 relative">
-  <h1 id="intro-experience" class="text-5xl font-bold text-gold mb-3 relative">
-  Professional Experience
-  <div class="firefly-container absolute inset-0 pointer-events-none"></div>
-</h1>
-  <p class="text-gray-700 text-lg max-w-2xl">
-    A journey through my software development career — focused on crafting scalable, maintainable, and high-quality software solutions.
-  </p>
-</section>
-
+  <section class="min-h-[60vh] flex flex-col justify-center items-center text-center pt-28 relative">
+    <h1 id="intro-experience" class="text-5xl font-bold text-gold mb-3 relative">
+      Professional Experience
+      <div class="firefly-container absolute inset-0 pointer-events-none"></div>
+    </h1>
+    <p class="text-gray-700 text-lg max-w-2xl">
+      A journey through my software development career — focused on crafting scalable, maintainable, and high-quality software solutions.
+    </p>
+  </section>
 
   <!-- 💼 Timeline Section -->
   <section class="max-w-5xl mx-auto px-6 pb-24 relative">
 
     <!-- Vertical Timeline Line -->
-   <div class="timeline-line relative w-1 overflow-hidden rounded-full">
-  <div class="orb"></div>
-  <div class="orb delay-1"></div>
-  <div class="orb delay-2"></div>
-</div>
-
-
+    <div class="timeline-line relative w-1 overflow-hidden rounded-full">
+      <div class="orb"></div>
+      <div class="orb delay-1"></div>
+      <div class="orb delay-2"></div>
+    </div>
 
     <div class="space-y-12 pl-16">
 
@@ -135,13 +160,13 @@
   </section>
 
   <!-- 📄 Footer -->
-  <footer class="glass-footer text-center py-10">
+  <footer class="text-center py-10 glass-footer border-t border-white/20">
     <a href="/docs/WaiYanMaung_CV.pdf" target="_blank" 
        class="btn-gold firefly-hover relative inline-block">
       📄 Download Resume
       <div class="firefly-container absolute inset-0 pointer-events-none"></div>
     </a>
-    <!-- <p class="text-gray-700 mt-3">© 2025 Wai Yan Maung — All Rights Reserved</p> -->
+    <p class="text-gray-700 mt-3">© 2025 Wai Yan Maung — All Rights Reserved</p>
   </footer>
 
   <!-- JS -->
