@@ -27,24 +27,18 @@ body {
   padding: 2.5rem;
   color: #222;
 }
-/* 🌟 Mobile Menu Animation */
-#mobile-menu {
-  animation: fadeInNav 0.3s ease;
-}
-@keyframes fadeInNav {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+
+/* 🌟 Smooth Transitions for Navbar */
 #nav-links {
   transition: all 0.4s ease-in-out;
 }
 
+/* Disable transitions on large screens for performance */
 @media (min-width: 768px) {
   #nav-links {
     transition: none !important;
   }
 }
-
 
 /* 🌟 About Me Button */
 .about-btn {
@@ -88,7 +82,7 @@ a {
   text-decoration: none;
 }
 
-/* 🌟 Responsive */
+/* 🌟 Responsive Fixes */
 @media (max-width: 1024px) {
   .glass-panel {
     position: static;
@@ -98,7 +92,7 @@ a {
   }
 }
 
-/* 🔥 Firefly spark (hover effect & intro) */
+/* 🔥 Firefly Spark (Hover Effect & Intro) */
 .firefly {
   position: absolute;
   width: 6px;
@@ -117,7 +111,7 @@ a {
   100% { transform: translateY(-60px) scale(0.5); opacity: 0; }
 }
 
-/* ✨ Fireflies background (floating ambient lights) */
+/* ✨ Fireflies Background */
 #fireflies {
   position: fixed;
   inset: 0;
@@ -145,7 +139,7 @@ a {
   100% { transform: translate(0,0) scale(1); opacity: 0.8; }
 }
 
-/* ✨ Intro name fade-in */
+/* ✨ Intro Name Fade-In */
 #intro-name {
   opacity: 0;
   transform: translateY(10px);
@@ -189,7 +183,7 @@ a {
   transform: scale(1.05);
 }
 
-/* 🌟 Page fade-in animation */
+/* 🌟 Page Fade-In Animation */
 .animate-fade-in {
   animation: fadeIn 3s ease-in-out;
 }
@@ -199,9 +193,7 @@ a {
   100% { opacity: 1; transform: translateY(0); }
 }
 
-/* 🌟 Mobile Menu Enhancement */
-/* 🌟 Fix: Align all mobile nav links to the left */
-/* 🌟 Mobile Navbar Alignment Fix */
+/* 🌟 Mobile Navbar Enhancement */
 @media (max-width: 768px) {
   #nav-links {
     background: rgba(255, 255, 255, 0.9);
@@ -213,7 +205,7 @@ a {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     text-align: left !important;
     flex-direction: column;
-    align-items: flex-start; /* ✅ ensures all start at same X */
+    align-items: flex-start;
     padding-left: 1rem;
   }
 
@@ -235,7 +227,8 @@ a {
     border-radius: 8px;
   }
 }
-/* 🌈 Smooth Fade Animations for Mobile Menu */
+
+/* 🌈 Mobile Menu Fade Animations */
 @keyframes fadeInNavMenu {
   from { opacity: 0; transform: translateY(-10px); }
   to { opacity: 1; transform: translateY(0); }
@@ -254,4 +247,18 @@ a {
   animation: fadeOutNavMenu 0.25s ease-in forwards;
 }
 
+/* 🧱 Desktop Menu — Remove Overlay Panel */
+@media (min-width: 768px) {
+  #nav-links {
+    background: transparent !important;
+    backdrop-filter: none !important;
+    box-shadow: none !important;
+  }
+}
 
+/* 🌟 Optional: Only apply blur on modern browsers */
+@supports (backdrop-filter: blur(10px)) {
+  .glass-panel, .glass-nav, .glass-footer {
+    backdrop-filter: blur(16px);
+  }
+}
