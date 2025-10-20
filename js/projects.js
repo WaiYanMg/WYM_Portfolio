@@ -60,6 +60,10 @@ css.innerHTML = `
 }`;
 document.head.appendChild(css);
 
+// ---------------------------------------------------
+// 💡 Project Modal Logic (with formatted descriptions)
+// ---------------------------------------------------
+
 let currentProject = null;
 let currentMediaIndex = 0;
 
@@ -76,12 +80,14 @@ function openProjectModal(project) {
   currentProject = project;
   currentMediaIndex = 0;
 
+  // 🧠 Allow HTML formatting in project description
   title.textContent = project.title;
-  desc.textContent = project.desc;
+  desc.innerHTML = project.desc;
 
   // Show GitHub / Demo if available
   github.classList.toggle("hidden", !project.github);
   if (project.github) github.href = project.github;
+
   demo.classList.toggle("hidden", !project.demo);
   if (project.demo) demo.href = project.demo;
 
@@ -90,12 +96,13 @@ function openProjectModal(project) {
     vid.src = project.video;
     vid.classList.remove("hidden");
     img.classList.add("hidden");
-  } else {
+  } else if (project.images && project.images.length > 0) {
     vid.classList.add("hidden");
     img.classList.remove("hidden");
     img.src = project.images[0];
   }
 
+  // Open modal
   modal.classList.remove("hidden");
   document.body.classList.add("overflow-hidden");
 }
@@ -106,7 +113,7 @@ function closeProjectModal() {
   document.body.classList.remove("overflow-hidden");
 }
 
-// Media Navigation
+// 🔄 Media Navigation
 function nextMedia() {
   if (!currentProject || !currentProject.images) return;
   currentMediaIndex = (currentMediaIndex + 1) % currentProject.images.length;
@@ -119,7 +126,8 @@ function prevMedia() {
   document.getElementById("modal-image").src = currentProject.images[currentMediaIndex];
 }
 
-// Click outside to close
-document.getElementById("project-modal").addEventListener("click", e => {
+// 🖱️ Close modal when clicking outside
+document.addEventListener("click", (e) => {
+  const modal = document.getElementById("project-modal");
   if (e.target.id === "project-modal") closeProjectModal();
 });
