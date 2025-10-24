@@ -81,68 +81,133 @@
   <!-- 💼 Projects List -->
   <section class="max-w-6xl mx-auto px-6 pb-24 space-y-16">
 
-    <!-- 🧩 Project 1: Smart HR System -->
-    <div class="flex flex-col md:flex-row items-center gap-8 glass-card p-8 relative project-card">
-      <div class="md:w-1/2 space-y-3">
-        <h2 class="text-3xl font-bold text-gold">Smart HR System</h2>
-        <p class="text-gray-700 leading-relaxed">
-          A complete HR management system built with 
-          <span class="text-gold font-semibold">C# and ASP.NET MVC</span>,
-          including employee attendance, payroll, and department modules.
-        </p>
-        <p class="text-sm text-gray-600">
-          Objective: Improve HR workflows and reduce manual record keeping by 60%.
-        </p>
-        <div class="mt-4 flex gap-3">
-          <a href="https://github.com/WaiYanMaungW/hr-system" target="_blank"
-             class="btn-gold firefly-hover relative inline-block">
-            GitHub
-            <div class="firefly-container absolute inset-0 pointer-events-none"></div>
-          </a>
-        </div>
-      </div>
-      <div class="md:w-1/2">
-        <video class="rounded-2xl shadow-lg w-full" controls muted poster="/images/project1-thumb.png">
-          <source src="/videos/project1.mp4" type="video/mp4" />
-          Your browser does not support video.
-        </video>
-      </div>
+    <!-- 🧩 Project 1: Smart HR -->
+    <!-- 🧩 Project: CarePlus Health Clinic Website -->
+<div class="flex flex-col md:flex-row items-center gap-8 glass-card p-8 relative project-card">
+  <div class="md:w-1/2 space-y-3">
+    <h2 class="text-3xl font-bold text-gold">CarePlus Health Clinic Website</h2>
+    <p class="text-gray-700 leading-relaxed">
+      A small responsive website created using 
+      <span class="text-gold font-semibold">HTML, CSS, and JavaScript</span> 
+      as part of a web development assignment at 
+      <strong>CCT College Dublin</strong>. 
+      It presents essential information about a clinic’s services, background, and contact options.
+    </p>
+    <p class="text-sm text-gray-600">
+      The project inspired my idea for a <strong>booking-based website</strong> 
+      that could be adapted for <strong>restaurants, salons, or barbers</strong>.  
+      This version was deployed on <strong>Amazon Web Services (AWS EC2)</strong> 
+      for cloud testing and hosting practice.  
+      <br><br>
+      In my <strong>portfolio website</strong>, I expanded on this concept by integrating 
+      <strong>EmailJS</strong> for direct contact and message delivery via email.
+    </p>
+    <div class="mt-4 flex gap-3">
+      <a href="https://github.com/WaiYanMaungW/careplus-clinic" target="_blank"
+         class="btn-gold firefly-hover relative inline-block">
+        GitHub
+        <div class="firefly-container absolute inset-0 pointer-events-none"></div>
+      </a>
     </div>
+  </div>
 
-    <!-- 🧩 Project 2: POS Billing Software -->
-    <div onclick="openProjectModal({
-      title: 'POS Billing Software',
-      desc: 'A desktop-based POS solution built with .NET Framework and MSSQL, designed for multi-branch businesses. Streamlines daily sales and inventory management.',
-      images: ['/images/fumi1.PNG','/images/fumi2.PNG','/images/fumi3.PNG'],
-      github: 'https://github.com/WaiYanMaungW/pos-system'
-    })" 
-    class="flex flex-col md:flex-row items-center gap-8 glass-card p-8 relative project-card cursor-pointer hover:shadow-xl transition-all duration-500">
-      <div class="md:w-1/2 space-y-3 text-left">
-        <h2 class="text-3xl font-bold text-gold">POS Billing Software</h2>
-        <p class="text-gray-700 leading-relaxed">
-          A desktop-based POS solution developed with 
-          <span class="text-gold font-semibold">.NET Framework</span> and 
-          <span class="text-gold font-semibold">MSSQL</span>, designed for multi-branch businesses.
-        </p>
-        <p class="text-sm text-gray-600">
-          Objective: Streamline daily sales and inventory management for retail clients.
-        </p>
-        <div class="mt-4">
-          <button class="btn-gold firefly-hover relative inline-block">
-            View Details
-            <div class="firefly-container absolute inset-0 pointer-events-none"></div>
-          </button>
-        </div>
-      </div>
-      <div class="md:w-1/2 grid grid-cols-2 gap-3">
-        <img src="/images/fumi1.PNG" alt="POS UI 1" class="rounded-xl shadow-lg">
-        <img src="/images/fumi2.PNG" alt="POS UI 2" class="rounded-xl shadow-lg">
-      </div>
-    </div>
+  <div class="md:w-1/2">
+    <video class="rounded-2xl shadow-lg w-full" controls muted poster="/images/careplus-thumb.png">
+      <source src="/videos/careplus-demo.mp4" type="video/mp4" />
+      Your browser does not support video.
+    </video>
+    <p class="text-center text-gray-500 text-sm mt-2">
+      Demo video running on AWS EC2 Cloud instance
+    </p>
+  </div>
+</div>
 
-    <!-- 🧩 Project 3: AI Chess Game -->
-     <div 
+
+
+    <!-- 🧩 Project: Custom POS Management System -->
+<div
   onclick="openProjectModal({
+    title: 'Custom POS Management System',
+    desc: `
+      <strong>Overview:</strong><br>
+      This is a <strong>custom POS (Point of Sale) software</strong> developed using 
+      <strong>C#, ASP.NET MVC, DevExpress, LINQ,</strong> and <strong>SQL Server</strong>.  
+      It shares the same architectural foundation and AES-encrypted licensing model as my HR system, 
+      designed for secure and scalable business operations.<br><br>
+
+      <strong>Core Features:</strong><br>
+      • Daily, monthly, and yearly <strong>profit calculation</strong> using optimized stored procedures in <strong>SQL Server Management Studio (SSMS)</strong><br>
+      • Real-time <strong>stock management</strong> — add, edit, and track inventory levels instantly<br>
+      • Direct <strong>balance and item detail lookup</strong> from the POS interface<br>
+      • <strong>Encryption</strong> applied to license keys and connection strings stored in 
+        <code>Computer\\HKEY_CURRENT_USER\\Software\\GA_POS</code><br><br>
+
+      <strong>Reporting & Analytics:</strong><br>
+      I designed multiple <strong>stored procedures</strong> to handle automatic calculations for daily, monthly, and yearly profit summaries.  
+      These procedures are integrated with <strong>DevExpress Reports</strong> to generate detailed financial and stock performance reports 
+      that can be printed or exported as PDF.<br><br>
+
+      <strong>System Integration:</strong><br>
+      The POS system connects with <strong>HR, Finance, and Web Sales</strong> databases for unified enterprise data synchronization 
+      through <strong>ASP.NET MVC Web Services</strong>.<br><br>
+
+      <strong>Scalability:</strong><br>
+      The same logic supports <strong>multi-branch deployments</strong>.  
+      In future supermarket versions, I can implement <strong>Queue (FIFO)</strong> and <strong>Stack (LIFO)</strong> 
+      based stock management for <strong>best-before and parity control</strong> — ensuring optimal stock rotation for perishable or priority-based products.<br><br>
+
+      <strong>Deployment & Usage:</strong><br>
+      This POS system has been customized and sold to multiple local businesses — including a 
+      <strong>Germany-based electronics distributor</strong> and several sales companies in Myanmar — 
+      as a standalone and integrated solution with existing HR and finance systems.<br><br>
+
+      <strong>Future Development:</strong><br>
+      Plan to include a <strong>web-connected sales dashboard</strong> with live transaction tracking and automated invoice emailing 
+      using <strong>Zoho Mail Web Services</strong> integration.
+    `,
+    images: [
+      '/images/POS1.PNG',
+      '/images/POS2.PNG',
+      '/images/POS3.PNG',
+      '/images/POS4.PNG',
+      '/images/POS5.PNG',
+      '/images/POS6.PNG',
+      '/images/POS7.PNG',
+      '/images/POS8.PNG',
+      '/images/POS9.PNG'
+    ]
+  })"
+  class="flex flex-col md:flex-row items-center gap-8 glass-card p-8 relative project-card 
+         cursor-pointer hover:shadow-xl transition-all duration-500"
+>
+  <div class="md:w-1/2 space-y-3 text-left">
+    <h2 class="text-3xl font-bold text-gold">Custom POS Management System</h2>
+    <p class="text-gray-700 leading-relaxed">
+      A <span class="text-gold font-semibold">secure enterprise POS solution</span> built with 
+      <span class="text-gold font-semibold">C#, ASP.NET MVC, DevExpress, LINQ,</span> and 
+      <span class="text-gold font-semibold">SQL Server</span>. 
+      Includes AES-encrypted licensing, real-time stock management, and automated profit reporting.
+    </p>
+    <p class="text-sm text-gray-600">
+      Designed for retail and electronics companies — connected with HR, finance, and web sales systems.
+    </p>
+    <div class="mt-4">
+      <button class="btn-gold firefly-hover relative inline-block">
+        View Details
+        <div class="firefly-container absolute inset-0 pointer-events-none"></div>
+      </button>
+    </div>
+  </div>
+
+  <div class="md:w-1/2 grid grid-cols-2 gap-3">
+    <img src="/images/POS1.PNG" alt="POS Dashboard" class="rounded-xl shadow-lg">
+    <img src="/images/POS2.PNG" alt="POS Report View" class="rounded-xl shadow-lg">
+  </div>
+</div>
+
+
+    <!-- 🧩 Project 3: fumi -->
+     <div onclick="openProjectModal({
     title: 'Fumigation Certificate Management System',
     desc: `
       I developed this <strong>Microsoft Office–style Windows application</strong> as a full-stack developer using 
@@ -160,7 +225,7 @@
       Certificates are generated through <strong>DevExpress Reports</strong> for professional printing.
       The system follows an <strong>MVC-style structure</strong> for clean, maintainable code.
     `,
-    images: ['/images/fumi1.PNG', '/images/fumi2.PNG', '/images/fumi3.PNG'],
+    images: ['/images/fumi1.PNG', '/images/fumi2.PNG', '/images/fumi3.PNG', '/images/fumi4.PNG'],
     github: 'https://github.com/WaiYanMaungW/fumigation-cert-system'
   })"
   class="flex flex-col md:flex-row items-center gap-8 glass-card p-8 relative project-card cursor-pointer hover:shadow-xl transition-all duration-500"
@@ -187,6 +252,212 @@
   <div class="md:w-1/2 grid grid-cols-2 gap-3">
     <img src="/images/fumi1.PNG" alt="Certificate System UI 1" class="rounded-xl shadow-lg">
     <img src="/images/fumi2.PNG" alt="Certificate System UI 2" class="rounded-xl shadow-lg">
+  </div>
+</div>
+
+<!-- 🧩 Project: Smart HR Management System -->
+<div
+  onclick="openProjectModal({
+    title: 'Smart HR Management System',
+    desc: `
+      <strong>Overview:</strong><br>
+      This is a <strong>full-stack HR management prototype</strong> built with 
+      <strong>C#, ASP.NET MVC, DevExpress, LINQ,</strong> and <strong>SQL Server</strong>. 
+      It automates <strong>staff management, attendance tracking, and payroll processing</strong> with integrated 
+      biometric device support and enterprise-level data security.<br><br>
+
+      <strong>Security & Licensing:</strong><br>
+      The system uses <strong>AES encryption</strong> for both the 
+      <strong>licensing control key</strong> and <strong>database connection string</strong>, 
+      stored securely in each user’s PC registry:<br>
+      <code>Computer\\HKEY_CURRENT_USER\\Software\\GA_HR</code><br><br>
+      Every login triggers an encrypted <strong>license validation</strong> process before 
+      establishing a secure database connection. A custom <strong>license management tool</strong> 
+      allows administrators to extend or renew licenses remotely.<br><br>
+
+      <strong>Key Features:</strong><br>
+      • Staff data management with shift assignment<br>
+      • Fingerprint-based attendance tracking (using SDK provided by manufacturer in China)<br>
+      • Automatic fines for late arrivals and overtime bonus calculation<br>
+      • Real-time HR dashboard showing active and off-site staff<br>
+      • Employee self-service login to view attendance, salary, and payslips<br><br>
+
+      <strong>Reporting & Data Management:</strong><br>
+      For report generation, multiple <strong>stored procedures</strong> were written and optimized 
+      in <strong>SQL Server Management Studio (SSMS)</strong> to handle complex data aggregation for 
+      <strong>attendance, payroll, and departmental analytics</strong>. These procedures integrate with 
+      <strong>DevExpress Reports</strong> and <strong>LINQ</strong> for fast, professional PDF and printed outputs.  
+      Each report is parameterized, improving query speed and maintaining data consistency across modules.<br><br>
+
+      <strong>Integration:</strong><br>
+      The HR system connects with <strong>POS, Finance, CRM, Production, Mobile,</strong> and 
+      <strong>Web</strong> systems to maintain unified enterprise data.<br><br>
+
+      <strong>Background:</strong><br>
+      Originally developed in 2018 for a <strong>government airport HR pilot project</strong> in Myanmar 
+      and later deployed in several private companies.  
+      This prototype is my own rewrite codes with previous experiences for future commercial use.<br><br>
+
+      <strong>Future Development:</strong><br>
+Planned feature: <strong>Task & Ticket System</strong> — allowing managers to assign timed tasks 
+to staff with live reporting and progress tracking from web or mobile devices.<br><br>
+
+Future versions will include an integrated <strong>real-time communication module</strong> for 
+internal <strong>chat and video calls</strong> within the HR environment, built as a private 
+enterprise application for secure team collaboration.<br><br>
+
+For report automation and notifications, I already have experience using 
+<strong>Zoho Mail Web Services</strong> and <strong>EmailJS</strong> for sending data-driven reports 
+through web-based APIs.  
+In the future, I plan to <strong>embed Zoho Web Services</strong> directly into the HR system for 
+email-based alerts, document sharing, and workflow approvals — turning the software into a 
+complete, all-in-one business communication and HR management suite.
+
+    `,
+    images: [
+      '/images/GA_HR1.PNG',
+      '/images/GA_HR2.PNG',
+      '/images/GA_HR3.PNG',
+      '/images/GA_HR4.PNG',
+      '/images/GA_HR5.PNG',
+      '/images/GA_HR6.PNG',
+      '/images/GA_HR7.PNG',
+      '/images/GA_HR8.PNG',
+      '/images/GA_HR9.PNG',
+      '/images/GA_HR10.PNG',
+      '/images/GA_HR11.PNG',
+      '/images/GA_HR12.PNG',
+      '/images/GA_HR13.PNG',
+      '/images/GA_HR14.PNG',
+      '/images/GA_HR15.PNG'
+    ]
+  })"
+  class="flex flex-col md:flex-row items-center gap-8 glass-card p-8 relative project-card 
+         cursor-pointer hover:shadow-xl transition-all duration-500"
+>
+  <div class="md:w-1/2 space-y-3 text-left">
+    <h2 class="text-3xl font-bold text-gold">Smart HR Management System</h2>
+    <p class="text-gray-700 leading-relaxed">
+      A <span class="text-gold font-semibold">secure enterprise HR solution</span> built with 
+      <span class="text-gold font-semibold">C#, ASP.NET MVC, DevExpress, LINQ,</span> and 
+      <span class="text-gold font-semibold">SQL Server</span>. 
+      Features include encrypted licensing, fingerprint attendance, payroll automation, and 
+      advanced reporting powered by SQL stored procedures.
+    </p>
+    <p class="text-sm text-gray-600">
+      Prototype rewrite of a 2018 government HR project — redesigned for enterprise use.
+    </p>
+    <div class="mt-4">
+      <button class="btn-gold firefly-hover relative inline-block">
+        View Details
+        <div class="firefly-container absolute inset-0 pointer-events-none"></div>
+      </button>
+    </div>
+  </div>
+
+  <div class="md:w-1/2 grid grid-cols-2 gap-3">
+    <img src="/images/GA_HR1.PNG" alt="HR Dashboard" class="rounded-xl shadow-lg">
+    <img src="/images/GA_HR2.PNG" alt="Attendance Module" class="rounded-xl shadow-lg">
+  </div>
+</div>
+
+
+<!-- 🧩 Project: IoT Home Automation System -->
+<div
+  onclick="openProjectModal({
+    title: 'IoT Home Automation System',
+    desc: `
+      <strong>Overview:</strong><br>
+      A prototype built using <strong>Arduino</strong> and an <strong>ESP8266 Wi-Fi module</strong> 
+      to control home electronics such as <strong>LED lights and appliances</strong> 
+      through a <strong>C# TCP/UDP desktop application</strong>.<br><br>
+
+      <strong>Core Functionality:</strong><br>
+      • Sends and receives <strong>real-time TCP/UDP data</strong> between PC and Arduino over Wi-Fi<br>
+      • Allows users to control electronic devices (e.g., room lights, fans) via a Windows app<br>
+      • Demonstrates socket-based communication commands like <code>r1on</code> / <code>r1off</code><br><br>
+
+      <strong>Voice Control & Recognition:</strong><br>
+      I expanded the system by integrating a <strong>Google Speech API</strong>-based 
+      voice command app that enables spoken control of home devices from an Android phone.<br><br>
+
+      <strong>Future Development:</strong><br>
+      The system can be extended with <strong>web services</strong> to enable remote control 
+      from a website or mobile app, and connect with <strong>cloud-based IoT APIs</strong> 
+      for smart home automation and data monitoring.
+    `,
+    images: [
+      '/images/IoT1.PNG',
+      '/images/IoT2.PNG',
+      '/images/IoT3.PNG',
+      '/images/IoT4.PNG',
+      '/images/IoT5.PNG'
+    ]
+  })"
+  class="flex flex-col md:flex-row items-center gap-8 glass-card p-8 relative project-card 
+         cursor-pointer hover:shadow-xl transition-all duration-500"
+>
+  <div class="md:w-1/2 space-y-3 text-left">
+    <h2 class="text-3xl font-bold text-gold">IoT Home Automation System</h2>
+    <p class="text-gray-700 leading-relaxed">
+      A <span class="text-gold font-semibold">Wi-Fi–based home automation</span> prototype 
+      built with <span class="text-gold font-semibold">Arduino, ESP8266,</span> and a 
+      <span class="text-gold font-semibold">C# desktop app</span> to control lights and devices 
+      through TCP/UDP communication.
+    </p>
+    <p class="text-sm text-gray-600">
+      Later expanded with <strong>Google Speech API</strong> for voice-controlled device operation 
+      via mobile — demonstrating IoT and smart home integration.
+    </p>
+    <div class="mt-4">
+      <button class="btn-gold firefly-hover relative inline-block">
+        View Details
+        <div class="firefly-container absolute inset-0 pointer-events-none"></div>
+      </button>
+    </div>
+  </div>
+
+  <div class="md:w-1/2 grid grid-cols-2 gap-3">
+    <img src="/images/IoT1.PNG" alt="IoT Control App UI" class="rounded-xl shadow-lg">
+    <img src="/images/IoT2.PNG" alt="Arduino and ESP8266 Setup" class="rounded-xl shadow-lg">
+  </div>
+</div>
+
+
+<!-- 🧩 Project: AI POS Analytics & Reporting System -->
+<div class="flex flex-col md:flex-row items-center gap-8 glass-card p-8 relative project-card">
+  <div class="w-full space-y-3 text-left">
+    <h2 class="text-3xl font-bold text-gold">
+      AI POS Analytics & Reporting System
+      <span class="text-gray-400 text-lg">(In Progress)</span>
+    </h2>
+    <p class="text-gray-700 leading-relaxed">
+      A next-generation <span class="text-gold font-semibold">POS reporting platform</span> 
+      enhanced with <span class="text-gold font-semibold">machine learning (ML.NET)</span> 
+      and <span class="text-gold font-semibold">LangChain AI</span> to predict business trends, 
+      generate intelligent insights, and assist users through conversational analytics.
+    </p>
+
+    <p class="text-sm text-gray-600">
+      Currently developing modules for <strong>AI-driven sales forecasting</strong>, 
+      <strong>financial reports</strong>, and <strong>claim form analysis</strong>.  
+      Early prototypes include <strong>ML.NET model testing</strong> and 
+      <strong>LangChain AI experiments</strong> that interpret POS data, 
+      calculate performance results, and notify users intelligently.
+    </p>
+
+    <p class="text-sm text-gray-600">
+      Future updates will introduce a <strong>chatbot and voice interaction system</strong> 
+      for real-time business reporting and decision support.
+    </p>
+
+    <div class="mt-4 flex gap-3">
+      <a href="https://github.com/WaiYanMaungW/ai-pos-mlnet" target="_blank"
+         class="btn-gold firefly-hover relative inline-block">
+        GitHub (Testing Repo)
+        <div class="firefly-container absolute inset-0 pointer-events-none"></div>
+      </a>
+    </div>
   </div>
 </div>
 
