@@ -131,3 +131,58 @@ document.addEventListener("click", (e) => {
   const modal = document.getElementById("project-modal");
   if (e.target.id === "project-modal") closeProjectModal();
 });
+
+
+// 🌐 GitHub CDN base path
+//const CDN_BASE = "https://cdn.jsdelivr.net/gh/WaiYanMg/WYM_Portfolio_Media/";
+const CDN_BASE = "https://cdn.jsdelivr.net/gh/WaiYanMg/WYM_Portfolio_Media@main/";
+
+// 🖼️ Project media paths
+const PROJECT_MEDIA = {
+  careplus: {
+    video: `${CDN_BASE}videos/careplus-web.mp4`,
+    poster: `${CDN_BASE}images/careplus-thumb.png`,
+  },
+   pos: [
+    `${CDN_BASE}images/POS1.png`,
+    `${CDN_BASE}images/POS2.png`,
+    `${CDN_BASE}images/POS3.png`,
+    `${CDN_BASE}images/POS4.png`,
+    `${CDN_BASE}images/POS5.png`,
+    `${CDN_BASE}images/POS6.png`,
+    `${CDN_BASE}images/POS7.png`,
+    `${CDN_BASE}images/POS8.png`,
+    `${CDN_BASE}images/POS9.png`,
+  ],
+  fumi: [
+    `${CDN_BASE}images/fumi1.PNG`,
+    `${CDN_BASE}images/fumi2.PNG`,
+    `${CDN_BASE}images/fumi3.PNG`,
+    `${CDN_BASE}images/fumi4.PNG`,
+  ],
+hr: [
+  `${CDN_BASE}images/GA_HR1.png`,
+  `${CDN_BASE}images/GA_HR2.png`,
+  `${CDN_BASE}images/GA_HR3.png`,
+  `${CDN_BASE}images/GA_HR4.png`,
+  `${CDN_BASE}images/GA_HR5.png`,
+  `${CDN_BASE}images/GA_HR6.png`,
+  `${CDN_BASE}images/GA_HR7.png`,
+  `${CDN_BASE}images/GA_HR8.png`,
+  `${CDN_BASE}images/GA_HR9.png`,
+  `${CDN_BASE}images/GA_HR10.png`,
+  `${CDN_BASE}images/GA_HR11.png`,
+  `${CDN_BASE}images/GA_HR12.png`,
+  `${CDN_BASE}images/GA_HR13.png`,
+  `${CDN_BASE}images/GA_HR14.png`,
+  `${CDN_BASE}images/GA_HR15.png`,
+  `${CDN_BASE}images/GA_HR16.JPG`,
+],
+  iot: [
+    `${CDN_BASE}images/IOT1.png`,
+    `${CDN_BASE}images/IOT2.png`,
+    `${CDN_BASE}images/IOT3.png`,
+    `${CDN_BASE}images/IOT4.png`,
+    `${CDN_BASE}images/IOT5.png`,
+  ],
+};
