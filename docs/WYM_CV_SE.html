@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wai Yan Maung — Software Engineer CV</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #111827;
+    --accent: #0F62FE;
+    --accent2: #00B4D8;
+    --muted: #6B7280;
+    --light: #F0F4FF;
+    --border: #E5E7EB;
+    --white: #FFFFFF;
+    --tag-bg: #EFF6FF;
+    --tag-border: #BFDBFE;
+  }
+
+  html { font-size: 15px; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--ink);
+    background: #F8FAFC;
+    line-height: 1.6;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    max-width: 900px;
+    margin: 40px auto;
+    background: var(--white);
+    box-shadow: 0 4px 40px rgba(0,0,0,0.10);
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: var(--ink);
+    padding: 48px 52px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 280px; height: 280px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(15,98,254,0.35) 0%, transparent 70%);
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: 200px;
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,180,216,0.2) 0%, transparent 70%);
+  }
+  .header-inner { position: relative; z-index: 1; }
+
+  .name {
+    font-size: 2.6rem;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+  .name span {
+    color: var(--accent2);
+  }
+  .title-line {
+    margin-top: 8px;
+    font-size: 1rem;
+    font-weight: 400;
+    color: rgba(255,255,255,0.65);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-family: 'DM Mono', monospace;
+  }
+
+  .contact-bar {
+    margin-top: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 20px;
+  }
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-family: 'DM Mono', monospace;
+  }
+  .contact-item:hover { color: var(--accent2); }
+  .contact-item .dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 18px;
+    padding: 7px 14px;
+    background: rgba(15,98,254,0.18);
+    border: 1px solid rgba(15,98,254,0.4);
+    border-radius: 4px;
+    font-size: 0.78rem;
+    color: var(--accent2);
+    font-weight: 600;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.03em;
+  }
+  .badge::before { content: '✓'; font-size: 0.85rem; }
+
+  /* ── BODY ── */
+  .body { display: grid; grid-template-columns: 1fr 260px; }
+
+  .main { padding: 40px 44px 48px; border-right: 1px solid var(--border); }
+  .sidebar { padding: 40px 28px 48px; background: #FAFBFF; }
+
+  /* ── SECTION ── */
+  .section { margin-bottom: 36px; }
+  .section:last-child { margin-bottom: 0; }
+
+  .section-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-family: 'DM Mono', monospace;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--accent);
+    display: inline-block;
+  }
+
+  /* ── SUMMARY ── */
+  .summary {
+    font-size: 0.92rem;
+    color: #374151;
+    line-height: 1.75;
+    font-weight: 400;
+  }
+
+  /* ── JOB ── */
+  .job { margin-bottom: 28px; }
+  .job:last-child { margin-bottom: 0; }
+
+  .job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 2px;
+  }
+  .job-title {
+    font-size: 0.97rem;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .job-dates {
+    font-size: 0.75rem;
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .job-company {
+    font-size: 0.82rem;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .job-bullets { list-style: none; padding: 0; }
+  .job-bullets li {
+    font-size: 0.85rem;
+    color: #374151;
+    line-height: 1.65;
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 5px;
+  }
+  .job-bullets li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 0.75rem;
+    top: 2px;
+  }
+
+  /* ── PROJECTS ── */
+  .project { margin-bottom: 18px; padding-bottom: 18px; border-bottom: 1px solid var(--border); }
+  .project:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .project-title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+  .project-stack {
+    font-size: 0.72rem;
+    font-family: 'DM Mono', monospace;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  .project-desc {
+    font-size: 0.83rem;
+    color: #4B5563;
+    line-height: 1.6;
+  }
+
+  /* ── SIDEBAR SKILLS ── */
+  .skill-group { margin-bottom: 22px; }
+  .skill-group-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+    font-family: 'DM Mono', monospace;
+  }
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  .tag {
+    background: var(--tag-bg);
+    border: 1px solid var(--tag-border);
+    border-radius: 3px;
+    padding: 3px 8px;
+    font-size: 0.74rem;
+    color: #1E40AF;
+    font-weight: 500;
+    font-family: 'DM Mono', monospace;
+  }
+  .tag.strong {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
+    font-weight: 600;
+  }
+
+  /* ── EDUCATION ── */
+  .edu-item { margin-bottom: 18px; }
+  .edu-degree {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.4;
+    margin-bottom: 2px;
+  }
+  .edu-school {
+    font-size: 0.78rem;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 1px;
+  }
+  .edu-dates {
+    font-size: 0.72rem;
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    body { background: white; font-size: 13px; }
+    .page { box-shadow: none; margin: 0; max-width: 100%; }
+    .header { padding: 32px 40px 28px; }
+    .main { padding: 28px 36px 36px; }
+    .sidebar { padding: 28px 22px 36px; }
+  }
+
+  @media (max-width: 680px) {
+    .body { grid-template-columns: 1fr; }
+    .main { border-right: none; border-bottom: 1px solid var(--border); }
+    .header { padding: 32px 28px; }
+    .main, .sidebar { padding: 28px; }
+    .name { font-size: 2rem; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="name">Wai Yan <span>Maung</span></div>
+      <div class="title-line">Software Engineer &nbsp;·&nbsp; Full Stack Developer</div>
+      <div class="contact-bar">
+        <a class="contact-item" href="mailto:waiyanmgw@gmail.com"><span class="dot"></span>waiyanmgw@gmail.com</a>
+        <a class="contact-item" href="tel:+353874058019"><span class="dot"></span>+353 874 058 019</a>
+        <span class="contact-item"><span class="dot"></span>Dublin 12, Ireland</span>
+        <a class="contact-item" href="https://wym-portfolio.vercel.app" target="_blank"><span class="dot"></span>wym-portfolio.vercel.app</a>
+        <a class="contact-item" href="https://github.com/WaiYanMg" target="_blank"><span class="dot"></span>github.com/WaiYanMg</a>
+        <a class="contact-item" href="https://linkedin.com/in/wai-yan-maung-8ba161263" target="_blank"><span class="dot"></span>LinkedIn</a>
+      </div>
+      <div class="badge">Stamp 1G — Eligible for immediate full-time employment in Ireland. No sponsorship needed.</div>
+    </div>
+  </header>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <!-- MAIN -->
+    <main class="main">
+
+      <!-- SUMMARY -->
+      <section class="section">
+        <div class="section-label">Profile</div>
+        <p class="summary">
+          Software Engineer with 3+ years of experience building and shipping production-grade enterprise systems in C#, .NET Core, and ASP.NET MVC. Proven ability to deliver scalable ERP, HR, and POS platforms with robust database design, Windows Server deployment, and a security-first mindset. Recent graduate of a Level 8 Higher Diploma in Computing (CCT College Dublin), expanding into cloud (AWS, Azure), ML.NET, and AI/ML integration. Thrives in collaborative, fast-moving teams and brings a strong track record of solving hard problems, mentoring peers, and continuously learning.
+        </p>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section class="section">
+        <div class="section-label">Experience</div>
+
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title">Full Stack Developer</div>
+            <div class="job-dates">Jun 2019 – Nov 2021</div>
+          </div>
+          <div class="job-company">Golden Artifact Technology · Yangon, Myanmar</div>
+          <ul class="job-bullets">
+            <li>Designed and delivered enterprise HR, POS, and management systems in C# and .NET Framework, serving multiple business clients at scale.</li>
+            <li>Managed software deployments across Windows Server 2012 environments including patching, configuration, and rollback procedures.</li>
+            <li>Built secure data synchronisation pipelines using OpenDBDiff and Hamachi-based replication, ensuring high data integrity across distributed environments.</li>
+            <li>Optimised MSSQL database performance through index tuning, stored procedure refactoring, and schema redesign — improving query speeds by 40%+.</li>
+            <li>Worked directly with clients to translate business requirements into technical specifications and delivered solutions on time.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title">Software Developer</div>
+            <div class="job-dates">Jul 2018 – Apr 2019</div>
+          </div>
+          <div class="job-company">Systematic Business Solution · Yangon, Myanmar</div>
+          <ul class="job-bullets">
+            <li>Built HR, POS, and ERP systems using C#, ASP.NET MVC, and MSSQL within Agile sprint workflows; promoted to Full Stack Developer within 3 months.</li>
+            <li>Led migration from legacy SourceSafe to Git, establishing modern version control and CI practices across the team.</li>
+            <li>Mentored junior developers on C# best practices, debugging, and code review standards.</li>
+            <li>Delivered database migration and query optimisation projects improving system performance and data reliability.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title">IT Support Intern</div>
+            <div class="job-dates">Apr 2018 – Jun 2018</div>
+          </div>
+          <div class="job-company">KMD Group of Companies · Yangon, Myanmar</div>
+          <ul class="job-bullets">
+            <li>Configured and maintained LAN/Wi-Fi networks, Windows and Linux servers, and hardware/software environments.</li>
+            <li>Assisted with PHP development and Linux system administration tasks.</li>
+          </ul>
+        </div>
+
+      </section>
+
+      <!-- PROJECTS -->
+      <section class="section">
+        <div class="section-label">Projects</div>
+
+        <div class="project">
+          <div class="project-title">Smart HR Management System</div>
+          <div class="project-stack">C# · .NET · MSSQL · DevExpress · AES-256</div>
+          <div class="project-desc">Full-stack HR platform with AES-256 encryption, biometric fingerprint attendance integration, and automated report generation. Demonstrates security-first enterprise architecture.</div>
+        </div>
+
+        <div class="project">
+          <div class="project-title">AI POS Analytics System <span style="font-size:0.72rem;color:#0F62FE;font-family:'DM Mono',monospace;"> · In Progress</span></div>
+          <div class="project-stack">ML.NET · LangChain · Python · SQL Server</div>
+          <div class="project-desc">Predictive analytics engine combining ML.NET time-series forecasting with LangChain-powered natural language querying for real-time business intelligence.</div>
+        </div>
+
+        <div class="project">
+          <div class="project-title">Custom POS Management System</div>
+          <div class="project-stack">C# · ASP.NET MVC · SQL Server</div>
+          <div class="project-desc">Secure multi-client POS platform with custom licensing architecture, session management, and enterprise-grade access controls.</div>
+        </div>
+
+        <div class="project">
+          <div class="project-title">IoT Home Automation System</div>
+          <div class="project-stack">C# · Arduino · TCP/UDP · Voice Control</div>
+          <div class="project-desc">Arduino-based smart home controller using C# TCP/UDP socket communication and voice command integration — showcasing low-level systems and networking skills.</div>
+        </div>
+
+        <div class="project">
+          <div class="project-title">CarePlus Health Clinic Website</div>
+          <div class="project-stack">HTML · CSS · JavaScript · AWS EC2</div>
+          <div class="project-desc">Responsive clinic web app deployed on AWS EC2, demonstrating cloud infrastructure and deployment experience.</div>
+        </div>
+
+      </section>
+
+    </main>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+      <!-- SKILLS -->
+      <section class="section">
+        <div class="section-label">Core Skills</div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">Languages</div>
+          <div class="tags">
+            <span class="tag strong">C#</span>
+            <span class="tag strong">C++</span>
+            <span class="tag strong">JavaScript</span>
+            <span class="tag">Java</span>
+            <span class="tag">Python</span>
+            <span class="tag">VB.NET</span>
+            <span class="tag">PHP</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">Frameworks</div>
+          <div class="tags">
+            <span class="tag strong">.NET Core</span>
+            <span class="tag strong">ASP.NET MVC</span>
+            <span class="tag">ML.NET</span>
+            <span class="tag">DevExpress</span>
+            <span class="tag">LINQ</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">Databases</div>
+          <div class="tags">
+            <span class="tag strong">MSSQL</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">MongoDB</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">Cloud & Systems</div>
+          <div class="tags">
+            <span class="tag">AWS EC2</span>
+            <span class="tag">Azure</span>
+            <span class="tag">Windows Server</span>
+            <span class="tag">Ubuntu/Linux</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">Tools & Practices</div>
+          <div class="tags">
+            <span class="tag strong">Git</span>
+            <span class="tag">CI/CD</span>
+            <span class="tag">Agile</span>
+            <span class="tag">OpenDBDiff</span>
+            <span class="tag">Debugging</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">AI / ML</div>
+          <div class="tags">
+            <span class="tag">ML.NET</span>
+            <span class="tag">LangChain</span>
+            <span class="tag">Azure AI</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- EDUCATION -->
+      <section class="section">
+        <div class="section-label">Education</div>
+
+        <div class="edu-item">
+          <div class="edu-degree">Higher Diploma in Science in Computing (Level 8)</div>
+          <div class="edu-school">CCT College Dublin, Ireland</div>
+          <div class="edu-dates">Feb 2025 – Feb 2026</div>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-degree">Bachelor of Engineering — Information Technology</div>
+          <div class="edu-school">West Yangon Technological University</div>
+          <div class="edu-dates">Dec 2012 – Sep 2018</div>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-degree">Diploma in Information Technology</div>
+          <div class="edu-school">National Management College, Myanmar</div>
+          <div class="edu-dates">Jan 2014 – Feb 2015</div>
+        </div>
+      </section>
+
+      <!-- WORK ELIGIBILITY -->
+      <section class="section">
+        <div class="section-label">Work Eligibility</div>
+        <p style="font-size:0.8rem;color:#374151;line-height:1.6;">
+          Currently residing in Dublin on a <strong>Stamp 1G Graduate Work Permission</strong>. Fully eligible for immediate, unrestricted full-time employment in Ireland. No sponsorship required.
+        </p>
+      </section>
+
+      <!-- LANGUAGES -->
+      <section class="section">
+        <div class="section-label">Languages</div>
+        <div style="font-size:0.82rem;color:#374151;line-height:1.8;">
+          <div>🇬🇧 English — Professional</div>
+          <div>🇲🇲 Burmese — Native</div>
+        </div>
+      </section>
+
+    </aside>
+  </div>
+</div>
+</body>
+</html>
