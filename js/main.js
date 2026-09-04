@@ -111,8 +111,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!hasBirthdayPassed) age--;
 
-  const ageSpan = document.getElementById("age");
-  if (ageSpan) ageSpan.textContent = age;
+    const ageSpan = document.getElementById("age");
+  if (ageSpan) ageSpan.textContent = `${age} years old`;
 
   // ==========================================================
   // 5️⃣ Firefly Hover Effect — Golden Spark Animation
@@ -182,3 +182,4 @@ function triggerFireflyIntro(elementId, duration = 3000, interval = 250) {
     }
   }, interval);
 }
+
